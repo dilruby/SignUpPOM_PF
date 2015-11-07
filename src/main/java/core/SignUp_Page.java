@@ -24,7 +24,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.w3c.dom.Document;
 
-public class SignUp_Page {
+public class SignUp_Page extends CommonMethods{
 	WebDriver driver;
 
 	public SignUp_Page(WebDriver wd) {
@@ -97,9 +97,7 @@ public class SignUp_Page {
 	@CacheLookup
 	static WebElement currentDate;
 	
-	@FindBy(id="copyright")
-	@CacheLookup
-	static WebElement copyright;
+	
 	
 	
 	
@@ -302,10 +300,6 @@ public class SignUp_Page {
 		assertEquals (currentDateApp,currentDay);
 	} // verifyCurrentDate
 	
-	public void verifyCopyright(String copyrightExpected){
-	copyright.isDisplayed();
-	String copyrightActual = copyright.getText();
-	assertEquals (copyrightExpected,copyrightActual);
-	} // verifyCopyright
+	
 
 } // class SignUp_Page

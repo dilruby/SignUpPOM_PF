@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
-public class Confirmation_Page {
+public class Confirmation_Page extends CommonMethods{
 	WebDriver driver;
 
 	public Confirmation_Page(WebDriver wd) {
@@ -84,21 +84,12 @@ public class Confirmation_Page {
 	@FindBy(id="id_back_button")
 	@CacheLookup
 	static WebElement backButton;
+		
 	
-	// method to open page
-	public void launchBrowser(String url) {
-		driver.get(url);
-	} // launchBrowser
-
-	// method to click on Submit button
-	public void clickSubmit() {		
-		submitButton.click();
-	} // clickSubmit
-
 	// method to submit form
 	public void submitForm(String fname, String lname, String email, String phone, String gender, String state,
 			Boolean terms, String cterms, String ctitle) {
-		launchBrowser("http://learn2test.net/qa/apps/sign_up/v1/");
+		driver.get("http://learn2test.net/qa/apps/sign_up/v1/");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		fnameField.clear();
 		fnameField.sendKeys(fname);
@@ -141,7 +132,7 @@ public class Confirmation_Page {
 
 	// method for back button verification
 	public void verifyBackButton(String titleExpected) {
-		launchBrowser("http://learn2test.net/qa/apps/sign_up/v1/conformation.php");
+		driver.get("http://learn2test.net/qa/apps/sign_up/v1/conformation.php");
 		backButton.click();
 		assertEquals(driver.getTitle(), titleExpected);
 

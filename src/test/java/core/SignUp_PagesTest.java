@@ -59,6 +59,7 @@ public class SignUp_PagesTest {
 	//PageFactory.initElements(driver, Confirmation_Page.class);
 	SignUp_Page sup = PageFactory.initElements(driver, SignUp_Page.class);
 	Confirmation_Page cp = PageFactory.initElements(driver, Confirmation_Page.class);
+	CommonMethods cm = PageFactory.initElements(driver, CommonMethods.class);
 	
 	static WebDriver driver = new FirefoxDriver();
 
@@ -172,7 +173,7 @@ public class SignUp_PagesTest {
 	// @Ignore
 	@Test
 	public void test_16_verifyCopyright() {
-		sup.verifyCopyright(copyrightExpected);
+		cm.verifyCopyright(copyrightExpected);
 	}
 
 }
