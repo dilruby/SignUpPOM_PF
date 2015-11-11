@@ -153,8 +153,7 @@ public class SignUp_Page extends CommonMethods{
 	} // verify_quote
 
 	// method for error handling
-	public void verifyErrorHandling(String fname, String lname, String email, String phone, String errorExpected,
-			String url) {
+	public void verifyErrorHandling(String fname, String lname, String email, String phone, String errorExpected) {
 
 		fnameField.clear();
 		fnameField.sendKeys(fname);
@@ -166,10 +165,10 @@ public class SignUp_Page extends CommonMethods{
 
 		clickSubmit();
 		
-		if (fname.matches("/^[a-zA-Z,.'-]{3,30}$/")) {
-			if (lname.matches("/^[a-zA-Z,.'-]{3,30}$/")) {
-				if (email.matches("/[a-zA-Z0-9]{2,}@([0-9a-zA-Z][-\\w]*\\.)+[a-zA-Z]{2,6}/")) {
-					if (phone.matches("/^\\(?[\\d]{3}\\)?[\\s-]?[\\d]{3}[\\s-]?[\\d]{4}$/")) {
+		if (fname.matches("^[a-zA-Z,.'-]{3,30}$")) {
+			if (lname.matches("^[a-zA-Z,.'-]{3,30}$")) {
+				if (email.matches("[a-zA-Z0-9]{2,}@([0-9a-zA-Z][-\\w]*\\.)+[a-zA-Z]{2,6}")) {
+					if (phone.matches("^\\(?[\\d]{3}\\)?[\\s-]?[\\d]{3}[\\s-]?[\\d]{4}$")) {
 					} else {
 						String errorActual = error.getText();
 						assertEquals(errorExpected, errorActual);

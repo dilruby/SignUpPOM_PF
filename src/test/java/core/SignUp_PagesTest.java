@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
@@ -17,27 +18,27 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignUp_PagesTest {
 
-	String url = "http://learn2test.net/qa/apps/sign_up/v1/";
+	private String url = "http://learn2test.net/qa/apps/sign_up/v1/";
 
-	String titleExpected = "Welcome to Sign Up v1";
-	String appTitleExpected = "Sign Up";
+	private String titleExpected = "Welcome to Sign Up v1";
+	private String appTitleExpected = "Sign Up";
 
-	String titleFacebookExpected = "Facebook - Log In or Sign Up";
-	String idFacebookImage = "id_img_facebook";
+	private String titleFacebookExpected = "Facebook - Log In or Sign Up";
+	private String idFacebookImage = "id_img_facebook";
 
-	String titleTwitterExpected = "Twitter";
-	String idTwitterImage = "id_img_twitter";
+	private String titleTwitterExpected = "Twitter";
+	private String idTwitterImage = "id_img_twitter";
 
-	String titleFlickrExpected = "Flickr, a Yahoo company | Flickr - Photo Sharing!";
-	String idFlickrImage = "id_img_flickr";
+	private String titleFlickrExpected = "Flickr, a Yahoo company | Flickr - Photo Sharing!";
+	private String idFlickrImage = "id_img_flickr";
 
-	String titleYoutubeExpected = "YouTube";
-	String idYoutubeImage = "id_img_youtube";
+	private String titleYoutubeExpected = "YouTube";
+	private String idYoutubeImage = "id_img_youtube";
 
-	String FirstNameEmpty = null;
-	String LastNameEmpty = null;
-	String EmailEmpty = null;
-	String PhoneNumberEmpty = null;
+	private String firstNameEmpty = "";
+	private String lastNameEmpty = "";
+	private String emailEmpty = "";
+	private String phoneNumberEmpty = "";
 
 	String errorFirstNameExpected = "Please enter First Name";
 	String errorLastNameExpected = "Please enter Last Name";
@@ -119,25 +120,25 @@ public class SignUp_PagesTest {
 	// @Ignore
 	@Test
 	public void test_07_verifyErrorHandlingFirstName() {
-		sup.verifyErrorHandling(FirstNameEmpty, lname, email, phone, errorFirstNameExpected, url);
+		sup.verifyErrorHandling(firstNameEmpty, lname, email, phone, errorFirstNameExpected);
 	}
 
 	// @Ignore
 	@Test
 	public void test_08_verifyErrorHandlingLastName() {
-		sup.verifyErrorHandling(fname, LastNameEmpty, email, phone, errorLastNameExpected, url);
+		sup.verifyErrorHandling(fname, lastNameEmpty, email, phone, errorLastNameExpected);
 	}
 
 	// @Ignore
 	@Test
 	public void test_09_verifyErrorHandlingEmail() {
-		sup.verifyErrorHandling(fname, lname, EmailEmpty, phone, errorEmailExpected, url);
+		sup.verifyErrorHandling(fname, lname, emailEmpty, phone, errorEmailExpected);
 	}
 
 	// @Ignore
 	@Test
 	public void test_10_verifyErrorHandlingPhoneNumber() {
-		sup.verifyErrorHandling(fname, lname, email, PhoneNumberEmpty, errorPhoneNumberExpected, url);
+		sup.verifyErrorHandling(fname, lname, email, phoneNumberEmpty, errorPhoneNumberExpected);
 	}
 
 	// @Ignore
@@ -146,19 +147,19 @@ public class SignUp_PagesTest {
 		cp.submitForm(fname, lname, email, phone, gender, state, terms, cterms, ctitle);
 	}
 
-	// @Ignore
+	@Ignore
 	@Test
 	public void test_12_verifyCurrentCityState() throws Exception {
 		sup.verifyCurrentCityState();
 	}
 
-	// @Ignore
+	@Ignore
 	@Test
 	public void test_13_verifyCurrentWeather() throws Exception {
 		sup.verifyCurrentWeather();
 	}
 
-	// @Ignore
+	@Ignore
 	@Test
 	public void test_14_verifyCurrentTemperature() throws Exception {
 		sup.verifyTemperature();
